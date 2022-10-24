@@ -1,0 +1,128 @@
+<main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Dashboard Produk</h1>
+                        <div class="row">
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <form id="contact-form" action="" method="post" role="form" enctype="multipart/form-data" autocomplete="off">
+                                        <div class="error-container"></div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="nama">Nama</label>
+                                                <input class="form-control form-control-name" name="nama" id="nama" placeholder="Masukan Nama " type="text" required="">
+                                            </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="judul">Judul</label>
+                                                <input class="form-control form-control-email" name="judul" id="judul" placeholder="Masukan Judul" type="text" required="">
+                                            </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="gambar">Gambar</label>
+                                                <input class="form-control form-control-email" name="gambar[]" id="gambar[]" type="file" multiple="" value="">
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <label for="deskripsi">Deskripsi</label>
+                                            <textarea value="ya" class="form-control form-control-message" name="deskripsi" id="deskripsi" placeholder="Tulis Deskripsi " rows="10" required=""></textarea>
+                                            </div>
+                                            <div class="text-right">
+                                            <button class="btn btn-warning solid blank" type="submit" name="submit">Kirim</button>
+                                            </div> 
+                                            <br>
+                                            </form>
+                                            <h1>Content Active</h1>
+                                            <br>
+                                            <form action="" method="post">
+                                                <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" name="keyword" placeholder="Seaching.." autofocus="" autocomplete="off">
+                                                    <div class="text-right">
+                                                    <button class="btn btn-warning solid blank" type="submit" name="cari"> Search </button>
+                                                    </div>                                                
+                                                </div>
+                                                </div>
+                                            </form>
+                                            
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No.</th>
+                                                                <th>Nama</th>
+                                                                <th>Judul</th>
+                                                                <th>Deskripsi</th>
+                                                                <th>Gambar</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                                                                         
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Jendela</td>
+                                                                <td>Jendela</td>
+                                                                <td>Kegiatan pengerjaan dekorasi interior mencakup aplikasi bangunan atau proyek konstruksi lainnya dari plester (pelapisan) interior, termasuk bahan-bahan lathing yang berkaitan, instalasi atau pemasangan pintu (kecuali pintu otomatis dan pintu putar), kusen, jendela, rangka pintu dan jendela dari kayu atau bahan lainnya, instalasi dapur (kitchen set), tangga dan sejenisnya, pagar, instalasi furnitur, penyelesaian interior seperti langit-langit, pelapisan dinding dengan kayu, partisi/sekat yang dapat dibongkar pasang dan sebagainya, pengubinan atau pemasangan dalam bangunan atau proyek konstruksi lainnya dari keramik, dinding beton atau ubin lantai, parket (lantai dari papan yang bergambar) dan pelapisan lantai dengan kayu, pelapisan lantai linoleum dan karpet, termasuk karet atau plastik, teraso, marmer, granit atau pelapisan lantai atau dinding dan wallpaper (kertas dinding). Termasuk pengecatan, pemasangan kaca, cermin dan pemasangan ornamen dan pekerjaan dekorasi interior seni lainnya pada permukaan dinding, kolom atau plafon dengan kayu dan bahan lainnya</td>
+                                                                <td> <img src="img/apart1.jpg" width="50"><img src="img/apart2.jpg" width="50"><img src="img/apart3.jpg" width="50"><img src="img/apart4.jpg" width="50">                                                                </td>
+                                                                <td>
+                                                                    <a class="btn btn-primary" href="editproducts.php?Nomor=14">UPDATE</a>
+                                                                    <hr>
+                                                                    <a class="btn btn-danger" href="deleteproducts.php?Nomor=14" onclick="return confirm('data akan dihapus, anda yakin ?');">DELETE</a> 
+                                                                </td>
+                                                            </tr>
+                                                                                                                         
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>Interior</td>
+                                                                <td>Interior</td>
+                                                                <td>Kelompok ini mencakup kegiatan pengerjaan dekorasi interior dalam rangka penyelesaian bangunan gedung hunian dan non hunian serta bangunan sipil lainnya. Kegiatan pengerjaan dekorasi interior mencakup aplikasi bangunan atau proyek konstruksi lainnya dari plester (pelapisan) interior, termasuk bahan-bahan lathing yang berkaitan, instalasi atau pemasangan pintu (kecuali pintu otomatis dan pintu putar), kusen, jendela, rangka pintu dan jendela dari kayu atau bahan lainnya, instalasi dapur (kitchen set), tangga dan sejenisnya, pagar, instalasi furnitur, penyelesaian interior seperti langit-langit, pelapisan dinding dengan kayu, partisi/sekat yang dapat dibongkar pasang dan sebagainya, pengubinan atau pemasangan dalam bangunan atau proyek konstruksi lainnya dari keramik, dinding beton atau ubin lantai, parket (lantai dari papan yang bergambar) dan pelapisan lantai dengan kayu, pelapisan lantai linoleum dan karpet, termasuk karet atau plastik, teraso, marmer, granit atau pelapisan lantai atau dinding dan wallpaper (kertas dinding). Termasuk pengecatan, pemasangan kaca, cermin dan pemasangan ornamen dan pekerjaan dekorasi interior seni lainnya pada permukaan dinding, kolom atau plafon dengan kayu dan bahan lainnya</td>
+                                                                <td> <img src="img/product7 (1).jpg" width="50"><img src="img/product7 (2).jpg" width="50"><img src="img/product7 (3).jpg" width="50"><img src="img/product7 (4).jpg" width="50"><img src="img/product7 (5).jpg" width="50">                                                                </td>
+                                                                <td>
+                                                                    <a class="btn btn-primary" href="editproducts.php?Nomor=15">UPDATE</a>
+                                                                    <hr>
+                                                                    <a class="btn btn-danger" href="deleteproducts.php?Nomor=15" onclick="return confirm('data akan dihapus, anda yakin ?');">DELETE</a> 
+                                                                </td>
+                                                            </tr>
+                                                                                                                         
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>Backdrop TV</td>
+                                                                <td>Backdrop TV</td>
+                                                                <td>Kegiatan pengerjaan dekorasi interior mencakup aplikasi bangunan atau proyek konstruksi lainnya dari plester (pelapisan) interior, termasuk bahan-bahan lathing yang berkaitan, instalasi atau pemasangan pintu (kecuali pintu otomatis dan pintu putar), kusen, jendela, rangka pintu dan jendela dari kayu atau bahan lainnya, instalasi dapur (kitchen set), tangga dan sejenisnya, pagar, instalasi furnitur, penyelesaian interior seperti langit-langit, pelapisan dinding dengan kayu, partisi/sekat yang dapat dibongkar pasang dan sebagainya, pengubinan atau pemasangan dalam bangunan atau proyek konstruksi lainnya dari keramik, dinding beton atau ubin lantai, parket (lantai dari papan yang bergambar) dan pelapisan lantai dengan kayu, pelapisan lantai linoleum dan karpet, termasuk karet atau plastik, teraso, marmer, granit atau pelapisan lantai atau dinding dan wallpaper (kertas dinding). Termasuk pengecatan, pemasangan kaca, cermin dan pemasangan ornamen dan pekerjaan dekorasi interior seni lainnya pada permukaan dinding, kolom atau plafon dengan kayu dan bahan lainnya.</td>
+                                                                <td> <img src="img/5.jpg" width="50"><img src="img/backdroptv1.png" width="50"><img src="img/backdroptv2.png" width="50">                                                                </td>
+                                                                <td>
+                                                                    <a class="btn btn-primary" href="editproducts.php?Nomor=17">UPDATE</a>
+                                                                    <hr>
+                                                                    <a class="btn btn-danger" href="deleteproducts.php?Nomor=17" onclick="return confirm('data akan dihapus, anda yakin ?');">DELETE</a> 
+                                                                </td>
+                                                            </tr>
+                                                                                                                         
+                                                            <tr>
+                                                                <td>4</td>
+                                                                <td>Eksterior</td>
+                                                                <td>Eksterior</td>
+                                                                <td>Kegiatan pengerjaan dekorasi eksterior mencakup aplikasi bangunan atau proyek konstruksi lainnya dari plester (pelapisan) , termasuk bahan-bahan lathing yang berkaitan, instalasi atau pemasangan pintu (kecuali pintu otomatis dan pintu putar), kusen, jendela, rangka pintu dan jendela dari kayu atau bahan lainnya, instalasi dapur (kitchen set), tangga dan sejenisnya, pagar, instalasi furnitur, penyelesaian interior seperti langit-langit, pelapisan dinding dengan kayu, partisi/sekat yang dapat dibongkar pasang dan sebagainya, pengubinan atau pemasangan dalam bangunan atau proyek konstruksi lainnya dari keramik, dinding beton atau ubin lantai, parket (lantai dari papan yang bergambar) dan pelapisan lantai dengan kayu, pelapisan lantai linoleum dan karpet, termasuk karet atau plastik, teraso, marmer, granit atau pelapisan lantai atau dinding dan wallpaper (kertas dinding). Termasuk pengecatan, pemasangan kaca, cermin dan pemasangan ornamen dan pekerjaan dekorasi lainnya pada permukaan dinding, kolom atau plafon dengan kayu dan bahan lainnya</td>
+                                                                <td> <img src="img/1.jpg" width="50"><img src="img/2.jpg" width="50"><img src="img/3.jpg" width="50"><img src="img/4.jpg" width="50">                                                                </td>
+                                                                <td>
+                                                                    <a class="btn btn-primary" href="editproducts.php?Nomor=19">UPDATE</a>
+                                                                    <hr>
+                                                                    <a class="btn btn-danger" href="deleteproducts.php?Nomor=19" onclick="return confirm('data akan dihapus, anda yakin ?');">DELETE</a> 
+                                                                </td>
+                                                            </tr>
+                                                                                                                         
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
