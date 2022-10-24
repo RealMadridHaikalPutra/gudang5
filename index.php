@@ -1,3 +1,10 @@
+<?php
+
+require 'function.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -169,22 +176,34 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Date</th>
                                             <th>Name</th>
                                             <th>SKU Toko</th>
-                                            <th>SKU Gudang</th>
+                                            <th>Rak</th>
                                             <th>Quantity</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            $ambilsemuadatastok = mysqli_query($conn, "SELECT * FROM stok");
+                                            $i = 1;
+                                            while($data=mysqli_fetch_array($ambilsemuadatastok)){
+                                                $namabarang = $data['nama'];
+                                                $quantity = $data['quantity'];
+                                                $sku = $data['sku'];
+                                                $rak = $data['rak'];
+
+                                        ?>
+
                                         <tr>
-                                            <td>1</td>
-                                            <td>12/11/2022</td>
-                                            <td>Fan Cooler</td>
-                                            <td>2F1</td>
-                                            <td>K3C5</td>
-                                            <td>200</td>
+                                            <td><?=$i++;?></td>
+                                            <td><?=$namabarang;?></td>
+                                            <td><?=$sku;?></td>
+                                            <td><?=$rak;?></td>
+                                            <td><?=$quantity;?></td>
                                         </tr>
+                                        <?php
+                                            };
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
