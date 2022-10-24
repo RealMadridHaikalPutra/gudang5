@@ -83,7 +83,6 @@
 
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -154,7 +153,27 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    <form id="contact-form" action="" method="post" role="form" enctype="multipart/form-data" autocomplete="off">
+                        <div class="error-container"></div>
+                        <div class="row">
+                            <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input class="form-control form-control-name" name="nama" id="nama" placeholder="Masukan Nama " type="text" required="">
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="judul">Judul</label>
+                                <input class="form-control form-control-email" name="judul" id="judul" placeholder="Masukan Judul" type="text" required="">
+                            </div>
+                            </div>
+                            </div>
+                            <div class="text-right">
+                            <button class="btn btn-primary solid blank" type="submit" name="submit">Kirim</button>
+                            </div> 
+                            <br>
+                            </form>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
