@@ -1,3 +1,10 @@
+<?php
+
+require 'function.php';
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,16 +19,16 @@
     <title>Mirorim</title>
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +41,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -46,7 +53,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Stok Gudang</span></a>
             </li>
@@ -61,21 +68,23 @@
 
             <!-- Nav Item - Transmigration -->
             <li class="nav-item active">
-                <a class="nav-link" href="barangmasuk.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Barang Masuk</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Barang Preparation</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="barangmasuk.php">Masuk</a>
+                        <a class="collapse-item" href="preparation.php">Keluar</a>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="barangkeluar.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="barangkeluar.php">
+                    <i class="fas fa-sign-out-alt"></i>
                     <span>Barang Keluar</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="preparation.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Barang Preparation</span></a>
-            </li>
-
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -134,7 +143,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -159,37 +168,52 @@
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="worker">Worker</label>
-                                <input class="form-control form-control-name" name="worker" id="worker" placeholder="Masukan Nama Worker" type="text" required="">
+                                <input class="form-control" name="worker" id="worker" placeholder="Masukan Nama Worker" type="text" required="">
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="nama">Nama Barang</label>
-                                <input class="form-control form-control-email" name="barang" id="barang" placeholder="Nama Barang" type="text" required="">
+                                <input class="form-control" name="nama" id="nama" placeholder="Nama Barang" type="text">
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
-                                <label for="sku">SKU Toko</label>
-                                <input class="form-control form-control-email" name="sku" id="skubarang" placeholder="SKU Toko" type="text" required="">
+                                <label for="skubaru">SKU Toko</label>
+                                <input class="form-control" name="sku" id="sku" placeholder="SKU Toko" type="text">
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="quantity">Quantity</label>
-                                <input class="form-control form-control-email" name="quantity" id="quantity" placeholder="Quantity" type="number" required="">
+                                <input class="form-control" name="quantity" id="quantity" placeholder="Quantity" type="number" required="">
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="reject">Reject</label>
-                                <input class="form-control form-control-email" name="reject" id="reject" placeholder="Reject" type="number" required="">
+                                <input class="form-control" name="reject" id="reject" placeholder="Reject" type="number">
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="rak">Rak</label>
+                                <input class="form-control" name="rak" id="rak" placeholder="Rak" type="number" required="">
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="form-group" method="post">
+                                <label for="status">Status</label>
+                                <select class="form-control" name="status" id="status" placeholder="status" type="" required="">
+                                    <option value="Masuk">Masuk</option>
+                                </select>
                             </div>
                             </div>
                             </div>
                             <div class="text-right">
-                            <button class="btn btn-primary solid blank" type="submit" name="submit">Kirim</button>
-                            </div> 
+                            <button class="btn btn-warning solid blank" type="submit" name="barangmasuk">Update</button>
+                            <button class="btn btn-primary solid blank" type="submit" name="barangbaru">Add New</button>
+                            </div>
                             <br>
                             </form>
                     <!-- DataTales Example -->
@@ -209,18 +233,35 @@
                                             <th>SKU Toko</th>
                                             <th>Quantity</th>
                                             <th>Reject</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        $ambilsemuadatamasuk = mysqli_query($conn, "SELECT * FROM masuk");
+                                        $i = 1;
+                                        while($data=mysqli_fetch_array($ambilsemuadatamasuk)){
+                                            $worker = $data['worker'];
+                                            $date = $data['date'];
+                                            $nama = $data['nama'];
+                                            $sku = $data['sku'];
+                                            $quantity = $data['quantity'];
+                                            $reject = $data['reject'];
+                                            $status = $data['status']
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Ayung</td>
-                                            <td>11/11/11</td>
-                                            <td>Fan Cooler</td>
-                                            <td>K3C5</td>
-                                            <td>200</td>
-                                            <td>1</td>
+                                            <td><?=$i;?></td>
+                                            <td><?=$worker;?></td>
+                                            <td><?=$date;?></td>
+                                            <td><?=$nama;?></td>
+                                            <td class="text-uppercase"><?=$sku;?></td>
+                                            <td><?=$quantity;?></td>
+                                            <td><?=$reject;?></td>
+                                            <td><?=$status;?></td>
                                         </tr>
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -248,7 +289,6 @@
 
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -268,28 +308,28 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../logout.php">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="../js/demo/datatables-demo.js"></script>
 
 </body>
 

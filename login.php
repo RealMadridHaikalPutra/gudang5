@@ -1,3 +1,37 @@
+<?php
+session_start();
+$conn = mysqli_connect("localhost","root","","gudang5");
+
+
+//cek login terdaftar apa tidak
+if(isset($_POST['login'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    //cocokin dengan database
+    $cekdatabase= mysqli_query($conn,"SELECT * FROM login WHERE username='$username'and password='$password'");
+    //hitung jumlah data
+    $hitung = mysqli_num_rows($cekdatabase);
+
+    if($hitung>0){
+        $ambildatarole = mysqli_fetch_array($cekdatabase);
+        $role = $ambildatarole['role'];
+
+        if($role=='admin'){
+            $_SESSION['log'] = 'Logged';
+            $_SESSION['role'] = 'admin';
+            header('location:admin');
+        } else {
+            $_SESSION['log'] = 'Logged';
+            $_SESSION['role'] = 'user';
+            header('location:user');
+        }
+    } else {
+        echo 'data tidak ditemukan';
+    }
+
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,29 +73,24 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Username">
-                                        </div>
-                                        <div class="form-group">
+                                    <form method="post">
+                                            <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                name="username" id="username" placeholder="Enter Username" required>
+                                            </div>
+                                            <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
+                                                name="password" id="password" placeholder="Password" required>
+                                            </div>
+                                            <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
                                             </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <div class="text-center">
-                                            <a class="small" href="register.html">Create an Account!</a>
-                                        </div>
+                                            </div>
+                                            <button class="btn btn-primary btn-user btn-block" type="submit" name="login">Login</button>
+                                            <hr>
                                     </form>
                                     </div>
                                 </div>

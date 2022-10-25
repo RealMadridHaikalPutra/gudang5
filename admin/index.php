@@ -1,3 +1,8 @@
+<?php
+require 'function.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,16 +17,16 @@
     <title>Mirorim</title>
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +39,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -46,7 +51,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Stok Gudang</span></a>
             </li>
@@ -61,21 +66,23 @@
 
             <!-- Nav Item - Transmigration -->
             <li class="nav-item">
-                <a class="nav-link" href="barangmasuk.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Barang Masuk</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Barang Preparation</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="barangmasuk.php">Masuk</a>
+                        <a class="collapse-item" href="preparation.php">Keluar</a>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="barangkeluar.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="barangkeluar.php">
+                    <i class="fas fa-sign-out-alt"></i>
                     <span>Barang Keluar</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="preparation.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Barang Preparation</span></a>
-            </li>
-
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -133,9 +140,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -155,10 +162,13 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Stok Gudang 5</h1>
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Riwayat Barang Keluar</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Stok</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -166,22 +176,34 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Picker</th>
-                                            <th>Date</th>
                                             <th>Name</th>
                                             <th>SKU Toko</th>
+                                            <th>Rak</th>
                                             <th>Quantity</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            $ambilsemuadatastok = mysqli_query($conn, "SELECT * FROM stok");
+                                            $i = 1;
+                                            while($data=mysqli_fetch_array($ambilsemuadatastok)){
+                                                $namabarang = $data['nama'];
+                                                $quantity = $data['quantity'];
+                                                $sku = $data['sku'];
+                                                $rak = $data['rak'];
+
+                                        ?>
+
                                         <tr>
-                                            <td>1</td>
-                                            <td>Fadil</td>
-                                            <td>11/11/11</td>
-                                            <td>Fan Cooler</td>
-                                            <td>K3C5</td>
-                                            <td>200</td>
+                                            <td><?=$i++;?></td>
+                                            <td><?=$namabarang;?></td>
+                                            <td class="text-uppercase"><?=$sku;?></td>
+                                            <td><?=$rak;?></td>
+                                            <td><?=$quantity;?></td>
                                         </tr>
+                                        <?php
+                                            };
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -229,28 +251,28 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../logout.php">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="../js/demo/datatables-demo.js"></script>
 
 </body>
 

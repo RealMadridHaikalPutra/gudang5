@@ -5563,13 +5563,12 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .close {
-  float: right;
+  float: left;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
   color: #000;
   text-shadow: 0 1px 0 #fff;
-  opacity: .5;
 }
 
 .close:hover {
@@ -5742,6 +5741,7 @@ a.close.disabled {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   outline: 0;
+  color: black;
 }
 
 .modal-backdrop {
@@ -5778,13 +5778,13 @@ a.close.disabled {
 }
 
 .modal-title {
-  margin-bottom: 0;
-  line-height: 1.5;
+  color: black;
+
 }
 
 .modal-body {
   position: relative;
-  flex: 1 1 auto;
+  flex: 1 1 left;
   padding: 1rem;
 }
 
