@@ -21,16 +21,19 @@ if(isset($_POST['login'])){
             $_SESSION['log'] = 'Logged';
             $_SESSION['role'] = 'admin';
             header('location:admin');
-        } else {
-            $_SESSION['log'] = 'Logged';
-            $_SESSION['role'] = 'user';
-            header('location:user');
-        }
     } else {
-        echo 'data tidak ditemukan';
+        header('location:index.php');
     }
+}
 
 };
+
+if(!isset($_SESSION['log'])){
+
+} else {
+    header('location:admin');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +56,7 @@ if(isset($_POST['login'])){
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -92,6 +96,9 @@ if(isset($_POST['login'])){
                                             <button class="btn btn-primary btn-user btn-block" type="submit" name="login">Login</button>
                                             <hr>
                                     </form>
+                                    <button class="btn btn-secondary">
+                                        <a href="index.php">
+                                        Guest Mode</button>
                                     </div>
                                 </div>
                             </div>
