@@ -171,14 +171,14 @@ require 'function.php';
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
-                                <label for="nama">Nama Barang</label>
-                                <input class="form-control form-control-email" name="nama" id="nama" placeholder="Nama Barang" type="text" required="">
+                                <label for="sku">SKU Toko</label>
+                                <input class="form-control form-control-email text-uppercase" name="sku" id="skubarang" placeholder="SKU Toko" type="text" required="">
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
-                                <label for="sku">SKU Toko</label>
-                                <input class="form-control form-control-email text-uppercase" name="sku" id="skubarang" placeholder="SKU Toko" type="text" required="">
+                                <label for="nama">Nama Barang</label>
+                                <input class="form-control form-control-email" name="nama" id="nama" placeholder="Nama Barang" type="text">
                             </div>
                             </div>
                             <div class="col-md-4">

@@ -36,11 +36,13 @@ if(isset($_POST['barangbaru'])){
     $quantity = $_POST['quantity'];
     $rak = $_POST['rak'];
 
-    $addtostok = mysqli_query($conn, "INSERT INTO stok(nama, sku, quantity, rak) values('$nama','$sku','$quantity','$rak')");
-    if($addtostok){
-        header('location:index.php');
+    $cekdata = mysqli_query($conn, "SELECT * FROM stok where sku='$sku'");
+    $cek = mysqli_num_rows($cekdata);
+
+    if($cek==0){
+        mysqli_query($conn, "INSERT INTO stok(nama, sku, quantity, rak) values('$nama','$sku','$quantity','$rak')");
     } else {
-        header('location:index.php');
+        echo "<script>alert('Data SKU Sudah Ada')</script>";
     }
 
 }
@@ -48,13 +50,15 @@ if(isset($_POST['barangbaru'])){
 //prepare keluar
 if(isset($_POST['prekeluar'])){
     $worker = $_POST['worker'];
+
     $nama = $_POST['nama'];
     $sku = $_POST['sku'];
     $skugudang = $_POST['skugudang'];
     $quantity = $_POST['quantity'];
     $status = $_POST['status'];
+    $note = $_POST['note'];
 
-    $addtopre = mysqli_query($conn, "INSERT INTO preparation(worker, nama, sku, skugudang, quantity, status) values('$worker','$nama','$sku','$skugudang','$quantity','$status')");
+    $addtopre = mysqli_query($conn, "INSERT INTO preparation(worker, nama, sku, skugudang, quantity, status, note) values('$worker','$nama','$sku','$skugudang','$quantity','$status','$note')");
     if($addtopre){
         header('location:preparation.php');
     } else {
@@ -85,7 +89,33 @@ if(isset($_POST['barangkeluar'])){
     }
 }
 
+//update stok
+if(isset($_POST['editbarang'])){
+    $nama = $_POST['nama'];
+    $sku = $_POST['sku'];
+    $quantity = $_POST['quantity'];
+    $rak = $_POST['rak'];
 
+    $updatestok = mysqli_query($conn, "update stok set nama='$nama', quantity='$quantity', rak='$rak' where sku='$sku'");
+    if($updatestok){
+        header('location:index.php');
+    } else {
+        header('location:index.php');
+    }
+    
+}
+
+//HAPUS STOK
+if(isset($_POST['hapusbarang'])){
+    $idb = $_POST['idb'];
+
+    $hapus = mysqli_query($conn, "delete from stok where idbarang='$idb'");
+    if($hapus){
+        header('location:index.php');
+    } else {
+        header('location:index.php');
+    }
+}
 
 
 

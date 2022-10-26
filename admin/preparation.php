@@ -175,14 +175,14 @@ require 'function.php';
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
-                                <label for="nama">Nama Barang</label>
-                                <input class="form-control" name="nama" id="nama" placeholder="Nama Barang" type="text" required="">
+                                <label for="skutoko">SKU Toko</label>
+                                <input class="form-control text-uppercase" name="sku" id="sku" placeholder="SKU Toko" type="text">
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
-                                <label for="skutoko">SKU Toko</label>
-                                <input class="form-control text-uppercase" name="sku" id="sku" placeholder="SKU Toko" type="text">
+                                <label for="nama">Nama Barang</label>
+                                <input class="form-control" name="nama" id="nama" placeholder="Nama Barang" type="text" required="">
                             </div>
                             </div>
                             <div class="col-md-4">
@@ -205,6 +205,12 @@ require 'function.php';
                                 </select>
                             </div>
                             </div>
+                            <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Note">Note</label>
+                                <input class="form-control" name="note" id="note" placeholder="note" type="text">
+                            </div>
+                            </div>
                             </div>
                             <div class="text-right">
                             <button class="btn btn-danger solid blank" type="submit" name="prekeluar">Keluar</button>
@@ -224,11 +230,12 @@ require 'function.php';
                                             <th>No</th>
                                             <th>Worker</th>
                                             <th>Date</th>
-                                            <th>Name</th>
                                             <th>SKU Toko</th>
+                                            <th>Name</th>
                                             <th>SKU Gudang</th>
                                             <th>Quantity</th>
                                             <th>Status</th>
+                                            <th>Note</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -243,16 +250,18 @@ require 'function.php';
                                             $skugudang = $data['skugudang'];
                                             $quantity = $data['quantity'];
                                             $status = $data['status'];
+                                            $note = $data['note'];
                                         ?>
                                         <tr>
                                             <td><?=$i;?></td>
                                             <td><?=$worker;?></td>
                                             <td><?=$date;?></td>
-                                            <td><?=$nama;?></td>
                                             <td class="text-uppercase"><?=$sku;?></td>
+                                            <td><?=$nama;?></td>
                                             <td class="text-uppercase"><?=$skugudang;?></td>
                                             <td><?=$quantity;?></td>
                                             <td><?=$status;?></td>
+                                            <td><?=$note;?></td>
                                         </tr>
                                         <?php
                                         }

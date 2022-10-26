@@ -180,6 +180,7 @@ require 'function.php';
                                             <th>SKU Toko</th>
                                             <th>Rak</th>
                                             <th>Quantity</th>
+                                            <th>Update</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -187,6 +188,7 @@ require 'function.php';
                                             $ambilsemuadatastok = mysqli_query($conn, "SELECT * FROM stok");
                                             $i = 1;
                                             while($data=mysqli_fetch_array($ambilsemuadatastok)){
+                                                $idb = $data['idbarang'];
                                                 $namabarang = $data['nama'];
                                                 $quantity = $data['quantity'];
                                                 $sku = $data['sku'];
@@ -200,7 +202,64 @@ require 'function.php';
                                             <td class="text-uppercase"><?=$sku;?></td>
                                             <td><?=$rak;?></td>
                                             <td><?=$quantity;?></td>
+                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?=$idb;?>">
+                                                Edit</button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#delete<?=$idb;?>">
+                                                Delete</button>
+                                            </td>
                                         </tr>
+                                        <!-- The Edit -->
+                                            <div class="modal fade" id="edit<?=$idb;?>">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Edit Barang</h4>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <form method="post">
+                                                <div class="modal-body">
+                                                    <input type="text" name="nama" value="<?=$namabarang;?>" class="form-control" required="">
+                                                    <br>
+                                                    <input type="hidden" name="sku" value="<?=$sku;?>" class="form-control" required="">
+                                                    <input type="number" name="quantity" value="<?=$quantity;?>" class="form-control" required="">
+                                                    <br>
+                                                    <input type="text" name="rak" value="<?=$rak;?>" class="form-control" required="">
+                                                    <br>
+                                                    <button type="submit" class="btn btn-primary" name="editbarang">Edit</button>
+                                                </div>
+                                                </form>
+
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                            <!-- The Delete -->
+                                            <div class="modal fade" id="delete<?=$idb;?>">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Delete Barang</h4>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <form method="post">
+                                                <div class="modal-body">
+                                                    Mau Hapus Barang <?=$namabarang;?> dengan SKU <?=$sku;?> ?
+                                                    <input type="hidden" name="idb" value="<?=$idb;?>">
+                                                    <br>
+                                                    <br>
+                                                    <button type="submit" class="btn btn-warning" name="hapusbarang">Hapus</button>
+                                                </div>
+                                                </form>
+
+                                                </div>
+                                            </div>
+                                            </div>
                                         <?php
                                             };
                                         ?>
