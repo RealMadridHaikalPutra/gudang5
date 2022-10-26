@@ -117,6 +117,18 @@ if(isset($_POST['hapusbarang'])){
     }
 }
 
+//Hapus Semua
+if(isset($_POST['hapussemua'])){
+    $idb = $_POST['idmasuk'];
+
+    $hapussemua = mysqli_query($conn, "delete from masuk");
+    if($hapussemua){
+        header('location:barangmasuk.php');
+    } else {
+        header('location:barangmasuk.php');
+    }
+}
+
 
 
 ?>

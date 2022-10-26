@@ -27,6 +27,7 @@ require 'function.php';
 
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -219,8 +220,13 @@ require 'function.php';
                             </form>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
+                    <div class="card-header py-6">
+                        <button class="btn btn-danger">
+                                <a class="fas fa-download" href="exportpre.php"></a>
+                        </button>
+                        </div>
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Riwayat Barang Preparation Keluar</h6>
+                            <h4 class="m-0 font-weight-bold text-primary">Riwayat Barang Prepare</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

@@ -26,6 +26,7 @@ require 'function.php';
 
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -218,8 +219,22 @@ require 'function.php';
                             </form>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
+                    <div class="card-header py-6">
+                        <button class="btn btn-primary">
+                                <a class="fas fa-download" href="exportmasuk.php"></a>
+                        </button>
+                        <?php
+                            $hapusdata = mysqli_query($conn, "SELECT * FROM masuk");
+                            while($hapus=mysqli_fetch_array($hapusdata)){
+                                $idb = $hapus['idmasuk'];
+                            }
+                            
+                        ?>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?=$idb;?>">
+                            Delete All</button>
+                        </div>
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Riwayat Barang Masuk</h6>
+                            <h4 class="m-0 font-weight-bold text-primary">Riwayat Barang Masuk</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -273,7 +288,30 @@ require 'function.php';
 
             </div>
             <!-- End of Main Content -->
+            <!-- The Delete -->
+            <div class="modal fade" id="hapus<?=$idb;?>">
+                <div class="modal-dialog">
+                <div class="modal-content">
 
+                <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete ALL</h4>
+                    </div>
+
+                <!-- Modal body -->
+                    <form method="post">
+                        <div class="modal-body">
+                            Mau Hapus Semua Barang?
+                            <input type="hidden" name="idb" value="<?=$idb;?>">
+                            <br>
+                            <br>
+                         <button type="submit" class="btn btn-danger" name="hapussemua">Hapus</button>
+                        </div>
+                    </form>
+
+                     </div>
+                    </div>
+                   </div>      
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
