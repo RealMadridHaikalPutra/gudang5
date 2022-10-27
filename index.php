@@ -103,6 +103,11 @@ require 'function.php';
                                 </form>
                             </div>
                         </li>
+
+                        <div class="topbar-divider"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <a class="fas fa-sign-in-alt" href="login.php"></a>
                     </ul>
 
                 </nav>

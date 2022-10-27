@@ -1,7 +1,7 @@
 <?php
 
 require 'function.php';
-require 'cek.php';
+require '../cek.php';
 
 
 ?>
@@ -170,7 +170,7 @@ require 'cek.php';
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="worker">Worker</label>
-                                <input class="form-control" name="worker" id="worker" placeholder="Masukan Nama Worker" type="text" required="">
+                                <input class="form-control" name="worker" id="worker" placeholder="Masukan Nama Worker" type="text">
                             </div>
                             </div>
                             <div class="col-md-4">
@@ -200,7 +200,7 @@ require 'cek.php';
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="rak">Rak</label>
-                                <input class="form-control" name="rak" id="rak" placeholder="Rak" type="number" required="">
+                                <input class="form-control" name="rak" id="rak" placeholder="Rak" type="text" required="">
                             </div>
                             </div>
                             <div class="col-md-4">
@@ -302,7 +302,7 @@ require 'cek.php';
                 <!-- Modal body -->
                     <form method="post">
                         <div class="modal-body">
-                            Mau Hapus Semua Barang?
+                            Mau Hapus Semua Riwayat?
                             <input type="hidden" name="idb" value="<?=$idb;?>">
                             <br>
                             <br>

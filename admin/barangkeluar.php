@@ -1,6 +1,6 @@
 <?php
 require 'function.php';
-require 'cek.php';
+require '../cek.php';
 
 ?>
 <!DOCTYPE html>
@@ -206,9 +206,19 @@ require 'cek.php';
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                     <div class="card-header py-6">
-                        <button class="btn btn-danger">
+                        <button class="btn btn-primary">
                                 <a class="fas fa-download" href="exportkeluar.php"></a>
                         </button>
+                        <?php
+                            $hapusdata = mysqli_query($conn, "SELECT * FROM keluar");
+                            while($hapus=mysqli_fetch_array($hapusdata)){
+                                $idb = $hapus['idkeluar'];
+                            }
+                            
+                        ?>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapuskeluar<?=$idb;?>">
+                            Delete All</button>
+                        </div>
                         </div>
                         <div class="card-header py-3">
                             <h4 class="m-0 font-weight-bold text-primary">Riwayat Barang Keluar</h4>
@@ -262,7 +272,30 @@ require 'cek.php';
 
             </div>
             <!-- End of Main Content -->
+            <!-- The Delete -->
+            <div class="modal fade" id="hapuskeluar<?=$idb;?>">
+                <div class="modal-dialog">
+                <div class="modal-content">
 
+                <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete ALL</h4>
+                    </div>
+
+                <!-- Modal body -->
+                    <form method="post">
+                        <div class="modal-body">
+                            Mau Hapus Semua Riwayat?
+                            <input type="hidden" name="idb" value="<?=$idb;?>">
+                            <br>
+                            <br>
+                         <button type="submit" class="btn btn-danger" name="hapuskeluar">Hapus</button>
+                        </div>
+                    </form>
+
+                     </div>
+                    </div>
+                   </div>      
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">

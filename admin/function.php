@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("localhost","root","","gudang5");
+$conn = mysqli_connect("sql100.epizy.com","epiz_32867233","9n55nDATOa","epiz_32867233_gudang5");
 
 
 //barangmasuk
@@ -126,6 +126,30 @@ if(isset($_POST['hapussemua'])){
         header('location:barangmasuk.php');
     } else {
         header('location:barangmasuk.php');
+    }
+}
+
+//Hapus Semua
+if(isset($_POST['hapuskeluar'])){
+    $idb = $_POST['idkeluar'];
+
+    $hapussemua = mysqli_query($conn, "delete from keluar");
+    if($hapussemua){
+        header('location:barangkeluar.php');
+    } else {
+        header('location:barangkeluar.php');
+    }
+}
+
+//Hapus Semua
+if(isset($_POST['hapuspre'])){
+    $idb = $_POST['idpre'];
+
+    $hapussemua = mysqli_query($conn, "delete from preparation");
+    if($hapussemua){
+        header('location:preparation.php');
+    } else {
+        header('location:preparation.php');
     }
 }
 
