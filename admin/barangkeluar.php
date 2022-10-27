@@ -173,6 +173,12 @@ require '../cek.php';
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
+                                <label for="date">Date</label>
+                                <input class="form-control" name="date" id="date" type="datetime-local" require>
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="sku">SKU Toko</label>
                                 <input class="form-control form-control-email text-uppercase" name="sku" id="skubarang" placeholder="SKU Toko" type="text" required="">
                             </div>

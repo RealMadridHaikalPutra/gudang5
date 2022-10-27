@@ -177,6 +177,12 @@ require '../cek.php';
                             </div>
                             <div class="col-md-4">
                             <div class="form-group">
+                                <label for="date">Date</label>
+                                <input class="form-control" name="date" id="date" type="datetime-local" require>
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="skutoko">SKU Toko</label>
                                 <input class="form-control text-uppercase" name="sku" id="sku" placeholder="SKU Toko" type="text">
                             </div>
@@ -270,7 +276,7 @@ require '../cek.php';
                                             $note = $data['note'];
                                         ?>
                                         <tr>
-                                            <td><?=$i;?></td>
+                                            <td><?=$i++;?></td>
                                             <td><?=$worker;?></td>
                                             <td><?=$date;?></td>
                                             <td class="text-uppercase"><?=$sku;?></td>

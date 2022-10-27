@@ -3,7 +3,6 @@ session_start();
 
 $conn = mysqli_connect("sql100.epizy.com","epiz_32867233","9n55nDATOa","epiz_32867233_gudang5");
 
-
 //barangmasuk
 if(isset($_POST['barangmasuk'])){
     $worker = $_POST['worker'];
@@ -13,6 +12,7 @@ if(isset($_POST['barangmasuk'])){
     $reject = $_POST['reject'];
     $rak = $_POST['rak'];
     $status = $_POST['status'];
+    $date = $_POST['date'];
 
     $cekqtysekarang = mysqli_query($conn, "select * from stok where sku='$sku'");
     $ambildata = mysqli_fetch_array($cekqtysekarang);
@@ -20,7 +20,7 @@ if(isset($_POST['barangmasuk'])){
     $qtysekarang = $ambildata['quantity'];
     $tambahqty = $qtysekarang+$quantity;
 
-    $addtomasuk = mysqli_query($conn, "INSERT INTO masuk(worker, nama, sku, quantity, reject, rak, status) values('$worker','$nama','$sku','$quantity','$reject','$rak','$status')");
+    $addtomasuk = mysqli_query($conn, "INSERT INTO masuk(date, worker, nama, sku, quantity, reject, rak, status) values('$date','$worker','$nama','$sku','$quantity','$reject','$rak','$status')");
     $updateqty = mysqli_query($conn, "update stok set quantity='$tambahqty' where sku='$sku'");
     if($addtomasuk&&$updateqty){
         header('location:barangmasuk.php');
@@ -50,7 +50,7 @@ if(isset($_POST['barangbaru'])){
 //prepare keluar
 if(isset($_POST['prekeluar'])){
     $worker = $_POST['worker'];
-
+    $date = $_POST['date'];
     $nama = $_POST['nama'];
     $sku = $_POST['sku'];
     $skugudang = $_POST['skugudang'];
@@ -58,7 +58,7 @@ if(isset($_POST['prekeluar'])){
     $status = $_POST['status'];
     $note = $_POST['note'];
 
-    $addtopre = mysqli_query($conn, "INSERT INTO preparation(worker, nama, sku, skugudang, quantity, status, note) values('$worker','$nama','$sku','$skugudang','$quantity','$status','$note')");
+    $addtopre = mysqli_query($conn, "INSERT INTO preparation(date, worker, nama, sku, skugudang, quantity, status, note) values('$date','$worker','$nama','$sku','$skugudang','$quantity','$status','$note')");
     if($addtopre){
         header('location:preparation.php');
     } else {
@@ -73,6 +73,7 @@ if(isset($_POST['barangkeluar'])){
     $sku = $_POST['sku'];
     $quantity = $_POST['quantity'];
     $status = $_POST['status'];
+    $date = $_POST['date'];
 
     $cekqtysekarang = mysqli_query($conn, "select * from stok where sku='$sku'");
     $ambildata = mysqli_fetch_array($cekqtysekarang);
@@ -80,7 +81,7 @@ if(isset($_POST['barangkeluar'])){
     $qtysekarang = $ambildata['quantity'];
     $tambahqty = $qtysekarang-$quantity;
 
-    $addtokeluar = mysqli_query($conn, "INSERT INTO keluar(picker, nama, sku, quantity, status) values('$picker','$nama','$sku','$quantity','$status')");
+    $addtokeluar = mysqli_query($conn, "INSERT INTO keluar(date, picker, nama, sku, quantity, status) values('$date','$picker','$nama','$sku','$quantity','$status')");
     $updateqty = mysqli_query($conn, "update stok set quantity='$tambahqty' where sku='$sku'");
     if($addtomasuk&&$updateqty){
         header('location:barangkeluar.php');
