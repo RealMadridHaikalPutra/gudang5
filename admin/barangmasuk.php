@@ -219,8 +219,8 @@ require '../cek.php';
                             </div>
                             </div>
                             <div class="text-right">
-                            <button class="btn btn-warning solid blank" type="submit" name="barangmasuk">Update</button>
-                            <button class="btn btn-primary solid blank" type="submit" name="barangbaru">Add New</button>
+                            <button class="btn btn-warning solid blank" type="submit" name="barangmasuk">Add Barang Existing</button>
+                            <button class="btn btn-primary solid blank" type="submit" name="barangbaru">Add barang Baru</button>
                             </div>
                             <br>
                             </form>
@@ -238,7 +238,7 @@ require '../cek.php';
                             
                         ?>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?=$idb;?>">
-                            Delete All</button>
+                            Delete Semua History</button>
                         </div>
                         <div class="card-header py-3">
                             <h4 class="m-0 font-weight-bold text-primary">Riwayat Barang Masuk</h4>
@@ -302,7 +302,7 @@ require '../cek.php';
 
                 <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Delete ALL</h4>
+                        <h4 class="modal-title">Delete Semua Riwayat</h4>
                     </div>
 
                 <!-- Modal body -->
