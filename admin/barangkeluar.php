@@ -1,8 +1,11 @@
 <?php
+
 require 'function.php';
 require '../cek.php';
 
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +69,7 @@ require '../cek.php';
             </div>
 
             <!-- Nav Item - Transmigration -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -79,7 +82,7 @@ require '../cek.php';
                     </div>
                 </div>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="barangkeluar.php">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Barang Keluar</span></a>
@@ -91,7 +94,6 @@ require '../cek.php';
 
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -274,12 +276,12 @@ require '../cek.php';
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
+            <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
             <!-- The Delete -->
-            <div class="modal fade" id="hapuskeluar<?=$idb;?>">
+            <div class="modal fade" id="hapus<?=$idb;?>">
                 <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -295,7 +297,7 @@ require '../cek.php';
                             <input type="hidden" name="idb" value="<?=$idb;?>">
                             <br>
                             <br>
-                         <button type="submit" class="btn btn-danger" name="hapuskeluar">Hapus</button>
+                         <button type="submit" class="btn btn-danger" name="hapussemua">Hapus</button>
                         </div>
                     </form>
 

@@ -6,7 +6,6 @@ require '../cek.php';
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +54,7 @@ require '../cek.php';
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Stok Gudang</span></a>
@@ -95,7 +94,6 @@ require '../cek.php';
 
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -301,7 +299,7 @@ require '../cek.php';
             </div>
             <!-- End of Main Content -->
             <!-- The Delete -->
-            <div class="modal fade" id="hapuspre<?=$idb;?>">
+            <div class="modal fade" id="hapus<?=$idb;?>">
                 <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -317,15 +315,15 @@ require '../cek.php';
                             <input type="hidden" name="idb" value="<?=$idb;?>">
                             <br>
                             <br>
-                         <button type="submit" class="btn btn-danger" name="hapuspre">Hapus</button>
+                         <button type="submit" class="btn btn-danger" name="hapussemua">Hapus</button>
                         </div>
                     </form>
 
-                </div>
-                </div>
-            </div>      
-           <!-- Footer -->
-           <footer class="sticky-footer bg-white">
+                     </div>
+                    </div>
+                   </div>      
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>MIRORIM</span>
