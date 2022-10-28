@@ -222,13 +222,13 @@ require '../cek.php';
                                                 <!-- Modal body -->
                                                 <form method="post">
                                                 <div class="modal-body">
-                                                    <input type="text" name="nama" value="<?=$namabarang;?>" class="form-control" required="">
-                                                    <br>
+                                                    <label for="nama">Nama Barang</label>
+                                                    <input type="text" name="nama" placeholder="Nama Barang" value="<?=$namabarang;?>" class="form-control" required="">
                                                     <input type="hidden" name="sku" value="<?=$sku;?>" class="form-control" required="">
-                                                    <input type="number" name="quantity" value="<?=$quantity;?>" class="form-control" required="">
-                                                    <br>
-                                                    <input type="text" name="rak" value="<?=$rak;?>" class="form-control" required="">
-                                                    <br>
+                                                    <label for="quantity">Quantity</label>
+                                                    <input type="number" name="quantity" placeholder="Quantity" value="<?=$quantity;?>" class="form-control" required="">
+                                                    <label for="rak">Rak</label>
+                                                    <input type="text" name="rak" placeholder="Rak" value="<?=$rak;?>" class="form-control" required="">
                                                     <button type="submit" class="btn btn-primary" name="editbarang">Edit</button>
                                                 </div>
                                                 </form>

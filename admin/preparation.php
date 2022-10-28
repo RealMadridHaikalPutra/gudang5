@@ -319,25 +319,9 @@ require '../cek.php';
                         </div>
                     </form>
 
-<<<<<<< HEAD
-                     </div>
-                    </div>
-                   </div>      
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>MIRORIM</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-=======
                 </div>
                 </div>
             </div>      
->>>>>>> 79291ba305095ddb7208831b1ef91be1f29f3420
-
         </div>
         <!-- End of Content Wrapper -->
 
