@@ -212,7 +212,8 @@ require '../cek.php';
                             <div class="form-group" method="post">
                                 <label for="status">Status</label>
                                 <select class="form-control" name="status" id="status" placeholder="status" type="select" required="">
-                                    <option value="Keluar">Keluar</option>
+                                    <option value="On Progress">On Process</option>
+                                    <option value="Done">Done</option>
                                 </select>
                             </div>
                             </div>
@@ -262,6 +263,7 @@ require '../cek.php';
                                             <th>Quantity</th>
                                             <th>Status</th>
                                             <th>Note</th>
+                                            <th>Update Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -269,6 +271,7 @@ require '../cek.php';
                                         $ambilsemuadatapre = mysqli_query($conn, "SELECT * FROM preparation");
                                         $i = 1;
                                         while($data=mysqli_fetch_array($ambilsemuadatapre)){
+                                            $idb = $data['idpre'];
                                             $worker = $data['worker'];
                                             $date = $data['date'];
                                             $nama = $data['nama'];
@@ -288,6 +291,9 @@ require '../cek.php';
                                             <td><?=$quantity;?></td>
                                             <td><?=$status;?></td>
                                             <td><?=$note;?></td>
+                                            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#update<?=$idb;?>">
+                                                Update</button>
+                                            </td>
                                         </tr>
                                         <?php
                                         }
@@ -302,9 +308,37 @@ require '../cek.php';
                 <!-- /.container-fluid -->
 
             </div>
+            </div>
             <!-- End of Main Content -->
+            <!-- Edit Status Prepare -->
+                                                <!-- The Edit -->
+                                            <div class="modal fade" id="update<?=$idb;?>">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Update Progress</h4>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <form method="post">
+                                                <div class="modal-body">
+                                                    <select class="form-control" name="status" id="status" required="">
+                                                        <option value="On Progress">On Progress</option>
+                                                        <option value="Done">Done</option>
+                                                    </select>
+                                                    <input type="hidden" name="idb" value="<?=$idb;?>" class="form-control" required="">
+                                                    <br>
+                                                    <button type="submit" class="btn btn-warning" name="updatepre">Update</button>
+                                                </div>
+                                                </form>
+
+                                                </div>
+                                            </div>
+                                            </div>
             <!-- The Delete -->
-            <div class="modal fade" id="hapus<?=$idb;?>">
+            <div class="modal fade" id="hapuspre<?=$idb;?>">
                 <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -320,13 +354,14 @@ require '../cek.php';
                             <input type="hidden" name="idb" value="<?=$idb;?>">
                             <br>
                             <br>
-                         <button type="submit" class="btn btn-danger" name="hapussemua">Hapus</button>
+                         <button type="submit" class="btn btn-danger" name="hapuspre">Hapus</button>
                         </div>
                     </form>
 
                 </div>
                 </div>
             </div>      
+
         </div>
         <!-- End of Content Wrapper -->
 

@@ -189,5 +189,18 @@ if(isset($_POST['tombol'])){
     
 }
 
+// update prepare
+if(isset($_POST['updatepre'])){
+    $idb = $_POST['idb'];
+    $status = $_POST['status'];
+
+    $update = mysqli_query($conn, "UPDATE preparation SET status='$status' where idpre='$idb'");
+    if($update){
+        header('location:preparation.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+}
+
 
 ?>
