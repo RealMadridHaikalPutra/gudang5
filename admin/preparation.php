@@ -87,6 +87,11 @@ require '../cek.php';
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Barang Keluar</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pesan.php">
+                    <i class="far fa-envelope"></i>
+                    <span>Pesan</span></a>
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

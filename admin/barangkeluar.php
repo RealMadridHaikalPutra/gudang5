@@ -69,7 +69,7 @@ require '../cek.php';
             </div>
 
             <!-- Nav Item - Transmigration -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -82,10 +82,15 @@ require '../cek.php';
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="barangkeluar.php">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Barang Keluar</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pesan.php">
+                    <i class="far fa-envelope"></i>
+                    <span>Pesan</span></a>
             </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

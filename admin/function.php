@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("sql100.epizy.com","epiz_32867233","9n55nDATOa","epiz_32867233_gudang5");
+$conn = mysqli_connect("localhost","root","","gudang5");
 
 //barangmasuk
 if(isset($_POST['barangmasuk'])){
@@ -154,6 +154,40 @@ if(isset($_POST['hapuspre'])){
     }
 }
 
+//tokooo pesan
+if(isset($_POST['kirimpesan'])){
+    $picker = $_POST['picker'];
+    $nama = $_POST['nama'];
+    $kirimke = $_POST['kirimke'];
+    $sku = $_POST['sku'];
+    $quantity = $_POST['quantity'];
+    $kurir = $_POST['kurir'];
+    $note = $_POST['note'];
+    $status = $_POST['status'];
+    $cek = $_POST['cek'];
+
+    $pesan = mysqli_query($conn, "INSERT INTO pesan(cek, picker, nama, kirimke, sku, quantity, kurir, note, status) values('$cek','$picker','$nama','$kirimke','$sku','$quantity','$kurir','$note','$status')");
+    if($pesan){
+        header('location:index.php');
+    } else {
+        echo "<script>alert('Pesan Gagal Dikirim')</script>";
+    }
+}
+
+
+//edit check
+if(isset($_POST['tombol'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update pesan set cek='$cek' where idtoko='$idb'");
+    if($updatestok){
+        header('location:pesan.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
 
 
 ?>

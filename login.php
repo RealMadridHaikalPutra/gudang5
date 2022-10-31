@@ -21,18 +21,27 @@ if(isset($_POST['login'])){
             $_SESSION['log'] = 'Logged';
             $_SESSION['role'] = 'admin';
             header('location:admin');
-    } else {
+    } else{
+            $_SESSION['log'] = 'Logged';
+            $_SESSION['role'] = 'toko';
+            header('location:toko');
+    } 
+    
+} else {
         header('location:index.php');
+    
     }
-}
 
 };
 
-if(!isset($_SESSION['log'])){
+    if(isset($_SESSION['admin'])){
+        header('location:admin');
+    } elseif(isset($_SESSION['toko'])){
+        header('location:toko');
+    }  else {
 
-} else {
-    header('location:admin');
-}
+    }
+
 
 ?>
 <!DOCTYPE html>
