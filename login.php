@@ -21,12 +21,15 @@ if(isset($_POST['login'])){
             $_SESSION['log'] = 'Logged';
             $_SESSION['role'] = 'admin';
             header('location:admin');
-    } else{
+    } elseif($role=='toko'){
             $_SESSION['log'] = 'Logged';
             $_SESSION['role'] = 'toko';
             header('location:toko');
-    } 
-    
+    } elseif($role=='pre') {
+        $_SESSION['log'] = 'Logged';
+        $_SESSION['role'] = 'pre';
+        header('location:pre');
+    }
 } else {
         header('location:index.php');
     
@@ -38,8 +41,8 @@ if(isset($_POST['login'])){
         header('location:admin');
     } elseif(isset($_SESSION['toko'])){
         header('location:toko');
-    }  else {
-
+    } elseif(isset($_SESSION['pre'])){
+        header('location:pre');
     }
 
 
