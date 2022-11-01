@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("localhost","root","","gudang5");
+$conn = mysqli_connect("sql100.epizy.com","epiz_32867233","9n55nDATOa","epiz_32867233_gudang5");
 
 //barangmasuk
 if(isset($_POST['barangmasuk'])){
@@ -193,8 +193,9 @@ if(isset($_POST['tombol'])){
 if(isset($_POST['updatepre'])){
     $idb = $_POST['idb'];
     $status = $_POST['status'];
+    $balik = $_POST['balik'];
 
-    $update = mysqli_query($conn, "UPDATE preparation SET status='$status' where idpre='$idb'");
+    $update = mysqli_query($conn, "UPDATE preparation SET status='$status', balik='$balik' where idpre='$idb'");
     if($update){
         header('location:preparation.php');
     } else {

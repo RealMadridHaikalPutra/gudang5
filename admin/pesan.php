@@ -53,7 +53,7 @@ require '../cek.php';
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-warehouse"></i>
                     <span>Stok Gudang</span></a>
             </li>
 
@@ -211,7 +211,7 @@ require '../cek.php';
                                             <form method="post">
                                                 <td><input type="checkbox" id="sudah" name="cek" value="Sudah">
                                                 <input type="hidden" name="idb" value="<?=$idb;?>">
-                                                <button class="btn btn-warning" type="submit" name="tombol">
+                                                <button class="btn btn-warning" type="submit" name="tombol">Done</button>
                                             </form>
                                                 <td><?=$i++;?></td>
                                                 <td><?=$check;?></td>

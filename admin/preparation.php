@@ -56,7 +56,7 @@ require '../cek.php';
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-warehouse"></i>
                     <span>Stok Gudang</span></a>
             </li>
 
@@ -257,6 +257,7 @@ require '../cek.php';
                                             <th>No</th>
                                             <th>Worker</th>
                                             <th>Date</th>
+                                            <th>Back</th>
                                             <th>SKU Toko</th>
                                             <th>Name</th>
                                             <th>SKU Gudang</th>
@@ -280,11 +281,13 @@ require '../cek.php';
                                             $quantity = $data['quantity'];
                                             $status = $data['status'];
                                             $note = $data['note'];
+                                            $balik = $data['balik'];
                                         ?>
                                         <tr>
                                             <td><?=$i++;?></td>
                                             <td><?=$worker;?></td>
                                             <td><?=$date;?></td>
+                                            <td><?=$balik;?></td>
                                             <td class="text-uppercase"><?=$sku;?></td>
                                             <td><?=$nama;?></td>
                                             <td class="text-uppercase"><?=$skugudang;?></td>
@@ -295,6 +298,34 @@ require '../cek.php';
                                                 Update</button>
                                             </td>
                                         </tr>
+                                        <!-- The Edit -->
+                                        <div class="modal fade" id="update<?=$idb;?>">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Update Progress</h4>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <form method="post">
+                                                <div class="modal-body">
+                                                    <input type="datetime-local" class="form-control" name="balik" required="">
+                                                    <br>
+                                                    <select class="form-control" name="status" id="status" required="">
+                                                        <option value="Done">Done</option>
+                                                        <option value="On Progress">On Progress</option>
+                                                    </select>
+                                                    <input type="hidden" name="idb" value="<?=$idb;?>" class="form-control" required="">
+                                                    <br>
+                                                    <button type="submit" class="btn btn-warning" name="updatepre">Update</button>
+                                                </div>
+                                                </form>
+
+                                                </div>
+                                            </div>
+                                            </div>
                                         <?php
                                         }
                                         ?>
@@ -310,33 +341,6 @@ require '../cek.php';
             </div>
             </div>
             <!-- End of Main Content -->
-            <!-- Edit Status Prepare -->
-                                                <!-- The Edit -->
-                                            <div class="modal fade" id="update<?=$idb;?>">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Update Progress</h4>
-                                                </div>
-
-                                                <!-- Modal body -->
-                                                <form method="post">
-                                                <div class="modal-body">
-                                                    <select class="form-control" name="status" id="status" required="">
-                                                        <option value="On Progress">On Progress</option>
-                                                        <option value="Done">Done</option>
-                                                    </select>
-                                                    <input type="hidden" name="idb" value="<?=$idb;?>" class="form-control" required="">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-warning" name="updatepre">Update</button>
-                                                </div>
-                                                </form>
-
-                                                </div>
-                                            </div>
-                                            </div>
             <!-- The Delete -->
             <div class="modal fade" id="hapuspre<?=$idb;?>">
                 <div class="modal-dialog">
