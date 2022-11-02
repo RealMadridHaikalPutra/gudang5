@@ -32,7 +32,7 @@ require '../cek.php';
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Preparation</div>
-                            <a class="nav-link active" href="index.php">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-splotch"></i></div>
                                 All Request
                             </a>
@@ -45,7 +45,7 @@ require '../cek.php';
                                 <div class="sb-nav-link-icon"><i class="fas fa-fish"></i></div>
                                 Ana
                             </a>
-                            <a class="nav-link" href="dani.php">
+                            <a class="nav-link active" href="dani.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-dragon"></i></div>
                                 Dani
                             </a>
@@ -70,7 +70,7 @@ require '../cek.php';
                 
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Order List</h1>
+                        <h1 class="mt-4">Order List Dani</h1>
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -91,13 +91,13 @@ require '../cek.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                            $ambildatapesan = mysqli_query($conn, "SELECT * FROM special");
+                                            $ambildatapesan = mysqli_query($conn, "SELECT * FROM reqpre where worker = 'Dani'");
                                             $i = 1;
                                             while($data=mysqli_fetch_array($ambildatapesan)){
                                                 $idb = $data['idspecial'];
                                                 $cek = $data['cek'];
                                                 $nama = $data['nama'];
-                                                $kirimke = $data['kirimke'];
+                                                $worker = $data['worker'];
                                                 $sku = $data['sku'];
                                                 $quantity = $data['quantity'];
                                                 $kurir = $data['kurir'];
@@ -108,12 +108,12 @@ require '../cek.php';
                                             <form method="post">
                                                 <td><input type="checkbox" id="sudah" name="cek" value="Sudah">
                                                 <input type="hidden" name="idb" value="<?=$idb;?>">
-                                                <button class="btn btn-warning" type="submit" name="editpre">Done</button>
+                                                <button class="btn btn-warning" type="submit" name="danidone">Done</button>
                                             </form>
                                                 <td><?=$i++;?></td>
                                                 <td><?=$cek;?></td>
                                                 <td><?=$nama;?></td>
-                                                <td><?=$kirimke;?></td>
+                                                <td><?=$worker;?></td>
                                                 <td class="text-uppercase"><?=$sku;?></td>
                                                 <td><?=$quantity;?></td>
                                                 <td><?=$kurir;?></td>

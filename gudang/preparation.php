@@ -1,11 +1,9 @@
 <?php
-
 require 'function.php';
 require '../cek.php';
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +15,7 @@ require '../cek.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mirorim</title>
+    <title>Gudang - Mirorim</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,10 +42,10 @@ require '../cek.php';
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-warehouse"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Mirorim</div>
+                <div class="sidebar-brand-text mx-3">Gudang - Mirorim</div>
             </a>
 
             <!-- Divider -->
@@ -148,7 +146,7 @@ require '../cek.php';
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Gudang</span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>

@@ -1,5 +1,5 @@
 <?php
-require 'function.php';
+require '../gudang/function.php';
 require '../cek.php';
 
 
@@ -15,7 +15,7 @@ require '../cek.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mirorim</title>
+    <title>Admin - Mirorim</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,12 +44,15 @@ require '../cek.php';
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Mirorim</div>
+                <div class="sidebar-brand-text mx-3">Admin - Mirorim</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
+            <div class="sidebar-heading">
+                Gudang
+            </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
@@ -57,37 +60,38 @@ require '../cek.php';
                     <span>Stok Gudang</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Toko
+            </div>
+
+            <!-- Nav Item - Transmigration -->
+            <li class="nav-item active">
+                <a class="nav-link" href="order.php">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Order</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="special.php">
+                    <i class="fas fa-plane"></i>
+                    <span>Special Order</span></a>
+            </li>
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Transmigration
+                Preparation
             </div>
 
             <!-- Nav Item - Transmigration -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Barang Preparation</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="barangmasuk.php">Masuk</a>
-                        <a class="collapse-item" href="preparation.php">Keluar</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="request.php">
+                    <i class="fas fa-splotch"></i>
+                    <span>All Request</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="barangkeluar.php">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Barang Keluar</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="pesan.php">
-                    <i class="far fa-envelope"></i>
-                    <span>Pesan</span></a>
+                <a class="nav-link" href="reqpre.php">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Order Preparation</span></a>
             </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -167,18 +171,93 @@ require '../cek.php';
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Massage</h1>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
+                        <br>
+                        <form id="contact-form" action="" method="post" role="form" enctype="multipart/form-data" autocomplete="off">
+                            <div class="error-container"></div>
+                            <div class="row">
+                            <div class="col-md-4">
+                                    <div class="form-group" method="post">
+                                        <label for="picker">Picker</label>
+                                        <select class="form-control" name="picker" id="picker" placeholder="Picker" type="" required="">
+                                            <option value="Ratih">Ratih</option>
+                                            <option value="Intan">Intan</option>
+                                            <option value="Rido">Rido</option>
+                                            <option value="Robby">Robby</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nama">Nama Barang</label>
+                                    <input class="form-control" name="nama" id="nama" placeholder="Nama Barang" type="text">
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" method="post">
+                                        <label for="kirimke">In Order To</label>
+                                        <select class="form-control" name="kirimke" id="kirimke" placeholder="In Order To" type="" required="">
+                                            <option value="Gudang">Gudang</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sku">SKU Toko</label>
+                                    <input class="form-control  text-uppercase" name="sku" id="sku" placeholder="SKU Toko" type="text" required="">
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input class="form-control" name="quantity" id="quantity" placeholder="Quantity" type="number" required>
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                <div class="form-group" method="post">
+                                    <label for="kurir">Courier</label>
+                                    <select class="form-control" name="kurir" id="kurir" placeholder="Courier" required="">
+                                        <option value="SiCepat">SiCepat</option>
+                                        <option value="JNE">JNE</option>
+                                        <option value="J&T">J&T</option>
+                                        <option value="Shopee Express">Shopee Express</option>
+                                        <option value="Anter Aja">Anter Aja</option>
+                                        <option value="Grab/Gojek">Grab/Gojek</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="note">Note</label>
+                                        <input class="form-control" name="note" id="note" placeholder="Note" type="text">
+                                    </div>
+                                    </div>
+                                <div class="col-md-4">
+                                <div class="form-group" method="post">
+                                    <label for="status">Status</label>
+                                    <select class="form-control" name="status" id="status" placeholder="Status" type="" required="">
+                                        <option value="Refill">Refill</option>
+                                        <option value="Request">Request</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input class="form-control" name="cek" value="Belum" id="cek" placeholder="cek" type="hidden">
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                <button class="btn btn-primary solid blank" type="submit" name="adminkirim">Submit</button>
+                                </div>
+                                <br>
+                                </form>
+                        <h1 class="mt-4">Riwayat Pesan</h1>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
                                             <tr>
-                                                <th>Status</th>
                                                 <th>No</th>
                                                 <th>Status</th>
                                                 <th>Picker</th>
@@ -208,11 +287,6 @@ require '../cek.php';
                                                 $status = $data['status'];
                                         ?>
                                             <tr>
-                                            <form method="post">
-                                                <td><input type="checkbox" id="sudah" name="cek" value="Sudah">
-                                                <input type="hidden" name="idb" value="<?=$idb;?>">
-                                                <button class="btn btn-warning" type="submit" name="tombol">Done</button>
-                                            </form>
                                                 <td><?=$i++;?></td>
                                                 <td><?=$check;?></td>
                                                 <td><?=$picker;?></td>
@@ -228,30 +302,16 @@ require '../cek.php';
                                             }
                                         ?>
                                         </tbody>
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
+                </main>
             </div>
-            <!-- End of Main Content -->
-
         </div>
-        <!-- End of Content Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -265,10 +325,11 @@ require '../cek.php';
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="../logout.php">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>

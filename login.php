@@ -29,6 +29,10 @@ if(isset($_POST['login'])){
         $_SESSION['log'] = 'Logged';
         $_SESSION['role'] = 'pre';
         header('location:pre');
+    } elseif($role=='gudang') {
+        $_SESSION['log'] = 'Logged';
+        $_SESSION['role'] = 'gudang';
+        header('location:gudang');
     }
 } else {
         header('location:index.php');
@@ -43,6 +47,8 @@ if(isset($_POST['login'])){
         header('location:toko');
     } elseif(isset($_SESSION['pre'])){
         header('location:pre');
+    } elseif(isset($_SESSION['gudang'])){
+        header('location:gudang');
     }
 
 

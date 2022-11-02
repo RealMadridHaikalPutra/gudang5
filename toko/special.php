@@ -11,14 +11,14 @@ require '../cek.php';
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Prepare - Mirorim</title>
+        <title>Toko - Mirorim</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Prepare -  Mirorim</a>
+            <a class="navbar-brand" href="index.html">Toko Mirorim</a>
             <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#logoutModal" id="userDropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-sign-out-alt"></i></a>
@@ -31,35 +31,14 @@ require '../cek.php';
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Preparation</div>
-                            <a class="nav-link active" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-splotch"></i></div>
-                                All Request
+                            <div class="sb-sidenav-menu-heading">Toko</div>
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-paper-plane"></i></div>
+                                Order
                             </a>
-                            <div class="sb-sidenav-menu-heading">Worker</div>
-                            <a class="nav-link" href="ayung.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-horse"></i></div>
-                                Ayung
-                            </a>
-                            <a class="nav-link" href="ana.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-fish"></i></div>
-                                Ana
-                            </a>
-                            <a class="nav-link" href="dani.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-dragon"></i></div>
-                                Dani
-                            </a>
-                            <a class="nav-link" href="ilham.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-spider"></i></div>
-                                Ilham
-                            </a>
-                            <a class="nav-link" href="rido.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-cat"></i></div>
-                                Rido
-                            </a>
-                            <a class="nav-link" href="salsa.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-paw"></i></div>
-                                Salsa
+                            <a class="nav-link active" href="special.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-plane"></i></div>
+                                Special Order
                             </a>
                         </div>
                     </div>
@@ -70,14 +49,81 @@ require '../cek.php';
                 
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Order List</h1>
+                        <br>
+                        <form id="contact-form" action="" method="post" role="form" enctype="multipart/form-data" autocomplete="off">
+                            <div class="error-container"></div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nama">Nama Barang</label>
+                                    <input class="form-control" name="nama" id="nama" placeholder="Nama Barang" type="text">
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" method="post">
+                                        <label for="kirimke">In Order To</label>
+                                        <select class="form-control" name="kirimke" id="kirimke" placeholder="In Order To" type="" required="">
+                                            <option value="Preparation">Preparation</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sku">SKU Toko</label>
+                                    <input class="form-control  text-uppercase" name="sku" id="sku" placeholder="SKU Toko" type="text" required="">
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input class="form-control" name="quantity" id="quantity" placeholder="Quantity" type="number" required>
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                <div class="form-group" method="post">
+                                    <label for="kurir">Courier</label>
+                                    <select class="form-control" name="kurir" id="kurir" placeholder="Courier" required="">
+                                        <option value="SiCepat">SiCepat</option>
+                                        <option value="JNE">JNE</option>
+                                        <option value="J&T">J&T</option>
+                                        <option value="Shopee Express">Shopee Express</option>
+                                        <option value="Anter Aja">Anter Aja</option>
+                                        <option value="Grab/Gojek">Grab/Gojek</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="note">Note</label>
+                                        <input class="form-control" name="note" id="note" placeholder="Note" type="text" require>
+                                    </div>
+                                    </div>
+                                <div class="col-md-4">
+                                <div class="form-group" method="post">
+                                    <label for="status">Status</label>
+                                    <select class="form-control" name="status" id="status" placeholder="Status" type="" required="">
+                                        <option value="Request">Request</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input class="form-control" name="cek" value="Belum" id="cek" placeholder="cek" type="hidden">
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                <button class="btn btn-primary solid blank" type="submit" name="specialpesan">Submit</button>
+                                </div>
+                                <br>
+                                </form>
+                        <h1 class="mt-4">Riwayat Special Order</h1>
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                        <thead>
                                             <tr>
-                                                <th>Status</th>
                                                 <th>No</th>
                                                 <th>Status</th>
                                                 <th>Name</th>
@@ -94,7 +140,6 @@ require '../cek.php';
                                             $ambildatapesan = mysqli_query($conn, "SELECT * FROM special");
                                             $i = 1;
                                             while($data=mysqli_fetch_array($ambildatapesan)){
-                                                $idb = $data['idspecial'];
                                                 $cek = $data['cek'];
                                                 $nama = $data['nama'];
                                                 $kirimke = $data['kirimke'];
@@ -105,11 +150,6 @@ require '../cek.php';
                                                 $status = $data['status'];
                                         ?>
                                             <tr>
-                                            <form method="post">
-                                                <td><input type="checkbox" id="sudah" name="cek" value="Sudah">
-                                                <input type="hidden" name="idb" value="<?=$idb;?>">
-                                                <button class="btn btn-warning" type="submit" name="editpre">Done</button>
-                                            </form>
                                                 <td><?=$i++;?></td>
                                                 <td><?=$cek;?></td>
                                                 <td><?=$nama;?></td>
@@ -162,21 +202,5 @@ require '../cek.php';
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
-        <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
-
-        <!-- Page level plugins -->
-        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="../js/demo/datatables-demo.js"></script>
     </body>
 </html>

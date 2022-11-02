@@ -1,5 +1,5 @@
 <?php
-require '../gudang/function.php';
+require 'function.php';
 require '../cek.php';
 
 
@@ -15,7 +15,7 @@ require '../cek.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Mirorim</title>
+    <title>Gudang - Mirorim</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,6 +25,7 @@ require '../cek.php';
 
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -41,18 +42,15 @@ require '../cek.php';
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-warehouse"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin - Mirorim</div>
+                <div class="sidebar-brand-text mx-3">Gudang - Mirorim</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <div class="sidebar-heading">
-                Gudang
-            </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
@@ -60,38 +58,37 @@ require '../cek.php';
                     <span>Stok Gudang</span></a>
             </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
             <!-- Heading -->
             <div class="sidebar-heading">
-                Toko
+                Transmigration
             </div>
 
             <!-- Nav Item - Transmigration -->
             <li class="nav-item">
-                <a class="nav-link" href="order.php">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Order</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Barang Preparation</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="barangmasuk.php">Masuk</a>
+                        <a class="collapse-item" href="preparation.php">Keluar</a>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="special.php">
-                    <i class="fas fa-plane"></i>
-                    <span>Special Order</span></a>
-            </li>
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Preparation
-            </div>
-
-            <!-- Nav Item - Transmigration -->
-            <li class="nav-item">
-                <a class="nav-link" href="request.php">
-                    <i class="fas fa-splotch"></i>
-                    <span>All Request</span></a>
+                <a class="nav-link" href="barangkeluar.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Barang Keluar</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="reqpre.php">
-                    <i class="fas fa-bullhorn"></i>
-                    <span>Order Preparation</span></a>
+                <a class="nav-link" href="pesan.php">
+                    <i class="far fa-envelope"></i>
+                    <span>Pesan</span></a>
             </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -150,7 +147,7 @@ require '../cek.php';
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Gudang</span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>

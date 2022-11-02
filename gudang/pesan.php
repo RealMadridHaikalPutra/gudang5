@@ -1,11 +1,9 @@
 <?php
-
 require 'function.php';
 require '../cek.php';
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +15,7 @@ require '../cek.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mirorim</title>
+    <title>Gudang - Mirorim</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,10 +42,10 @@ require '../cek.php';
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-warehouse"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Mirorim</div>
+                <div class="sidebar-brand-text mx-3">Gudang - Mirorim</div>
             </a>
 
             <!-- Divider -->
@@ -82,12 +80,12 @@ require '../cek.php';
                     </div>
                 </div>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="barangkeluar.php">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Barang Keluar</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="pesan.php">
                     <i class="far fa-envelope"></i>
                     <span>Pesan</span></a>
@@ -99,6 +97,7 @@ require '../cek.php';
 
         </ul>
         <!-- End of Sidebar -->
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -148,7 +147,7 @@ require '../cek.php';
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Gudang</span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>
@@ -169,151 +168,84 @@ require '../cek.php';
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <form id="contact-form" action="" method="post" role="form" enctype="multipart/form-data" autocomplete="off">
-                        <div class="error-container"></div>
-                        <div class="row">
-                            <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="picker">Picker</label>
-                                <input class="form-control form-control-name" name="picker" id="picker" placeholder="Masukan Nama Picker" type="text" required="">
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input class="form-control" name="date" id="date" type="datetime-local" require>
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="sku">SKU Toko</label>
-                                <input class="form-control form-control-email text-uppercase" name="sku" id="skubarang" placeholder="SKU Toko" type="text" required="">
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="nama">Nama Barang</label>
-                                <input class="form-control form-control-email" name="nama" id="nama" placeholder="Nama Barang" type="text">
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="quantity">Quantity</label>
-                                <input class="form-control form-control-email" name="quantity" id="quantity" placeholder="Quantity" type="number" required="">
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <div class="form-group" method="post">
-                                <label for="status">Status</label>
-                                <select class="form-control" name="status" id="status" placeholder="status" type="" required="">
-                                    <option value="Keluar">Keluar</option>
-                                </select>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="text-right">
-                            <button class="btn btn-primary solid blank" type="submit" name="barangkeluar">Add Barang ke Toko</button>
-                            </div> 
-                            <br>
-                            </form>
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Massage</h1>
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                    <div class="card-header py-6">
-                        <button class="btn btn-primary">
-                                <a class="fas fa-download" href="exportkeluar.php"></a>
-                        </button>
-                        <?php
-                            $hapusdata = mysqli_query($conn, "SELECT * FROM keluar");
-                            while($hapus=mysqli_fetch_array($hapusdata)){
-                                $idb = $hapus['idkeluar'];
-                            }
-                            
-                        ?>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapuskeluar<?=$idb;?>">
-                            Delete Semua History</button>
-                        </div>
-                        </div>
-                        <div class="card-header py-3">
-                            <h4 class="m-0 font-weight-bold text-primary">Riwayat Barang Keluar</h4>
-                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Picker</th>
-                                            <th>Date</th>
-                                            <th>Name</th>
-                                            <th>SKU Toko</th>
-                                            <th>Quantity</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                <thead>
+                                            <tr>
+                                                <th>Status</th>
+                                                <th>No</th>
+                                                <th>Status</th>
+                                                <th>Picker</th>
+                                                <th>Name</th>
+                                                <th>In Order To</th>
+                                                <th>SKU</th>
+                                                <th>Quantity</th>
+                                                <th>Courier</th>
+                                                <th>Type</th>
+                                                <th>Note</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                         <?php
-                                            $ambilsemuadatakeluar = mysqli_query($conn, "SELECT * FROM keluar");
+                                            $ambildatapesan = mysqli_query($conn, "SELECT * FROM pesan");
                                             $i = 1;
-                                            while($data=mysqli_fetch_array($ambilsemuadatakeluar)){
+                                            while($data=mysqli_fetch_array($ambildatapesan)){
+                                                $idb = $data['idtoko'];
+                                                $check = $data['cek'];
                                                 $picker = $data['picker'];
-                                                $date = $data['date'];
                                                 $nama = $data['nama'];
+                                                $kirimke = $data['kirimke'];
                                                 $sku = $data['sku'];
                                                 $quantity = $data['quantity'];
+                                                $kurir = $data['kurir'];
+                                                $note = $data['note'];
                                                 $status = $data['status'];
                                         ?>
-                                        <tr>
-                                            <td><?=$i++;?></td>
-                                            <td><?=$picker;?></td>
-                                            <td><?=$date;?></td>
-                                            <td><?=$nama;?></td>
-                                            <td class="text-uppercase"><?=$sku;?></td>
-                                            <td><?=$quantity;?></td>
-                                            <td><?=$status;?></td>
-                                        </tr>
+                                            <tr>
+                                            <form method="post">
+                                                <td><input type="checkbox" id="sudah" name="cek" value="Sudah">
+                                                <input type="hidden" name="idb" value="<?=$idb;?>">
+                                                <button class="btn btn-warning" type="submit" name="tombol">Done</button>
+                                            </form>
+                                                <td><?=$i++;?></td>
+                                                <td><?=$check;?></td>
+                                                <td><?=$picker;?></td>
+                                                <td><?=$nama;?></td>
+                                                <td><?=$kirimke;?></td>
+                                                <td class="text-uppercase"><?=$sku;?></td>
+                                                <td><?=$quantity;?></td>
+                                                <td><?=$kurir;?></td>
+                                                <td><?=$status;?></td>
+                                                <td><?=$note;?></td>
+                                            </tr>
                                         <?php
                                             }
                                         ?>
-                                    </tbody>
+                                        </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
                 </div>
-            <!-- /.container-fluid -->
+                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
-            <!-- The Delete -->
-            <div class="modal fade" id="hapus<?=$idb;?>">
-                <div class="modal-dialog">
-                <div class="modal-content">
 
-                <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Delete Semua Riwayat</h4>
-                    </div>
-
-                <!-- Modal body -->
-                    <form method="post">
-                        <div class="modal-body">
-                            Mau Hapus Semua Riwayat?
-                            <input type="hidden" name="idb" value="<?=$idb;?>">
-                            <br>
-                            <br>
-                         <button type="submit" class="btn btn-danger" name="hapussemua">Hapus</button>
-                        </div>
-                    </form>
-
-                     </div>
-                    </div>
-                   </div>      
         </div>
         <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

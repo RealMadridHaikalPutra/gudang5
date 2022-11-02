@@ -1,5 +1,5 @@
 <?php
-require '../admin/function.php';
+require '../gudang/function.php';
 require '../cek.php';
 
 ?>
@@ -35,6 +35,10 @@ require '../cek.php';
                             <a class="nav-link active" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-paper-plane"></i></div>
                                 Order
+                            </a>
+                            <a class="nav-link" href="special.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-plane"></i></div>
+                                Special Order
                             </a>
                         </div>
                     </div>

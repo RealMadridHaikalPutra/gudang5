@@ -174,6 +174,24 @@ if(isset($_POST['kirimpesan'])){
     }
 }
 
+//special pesan
+if(isset($_POST['specialpesan'])){
+    $nama = $_POST['nama'];
+    $kirimke = $_POST['kirimke'];
+    $sku = $_POST['sku'];
+    $quantity = $_POST['quantity'];
+    $kurir = $_POST['kurir'];
+    $note = $_POST['note'];
+    $status = $_POST['status'];
+    $cek = $_POST['cek'];
+
+    $pesan = mysqli_query($conn, "INSERT INTO special(cek, nama, kirimke, sku, quantity, kurir, note, status) values('$cek','$nama','$kirimke','$sku','$quantity','$kurir','$note','$status')");
+    if($pesan){
+        header('location:special.php');
+    } else {
+        echo "<script>alert('Pesan Gagal Dikirim')</script>";
+    }
+}
 
 //edit check
 if(isset($_POST['tombol'])){
@@ -183,6 +201,21 @@ if(isset($_POST['tombol'])){
     $updatestok = mysqli_query($conn, "update pesan set cek='$cek' where idtoko='$idb'");
     if($updatestok){
         header('location:pesan.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
+
+
+//edit check
+if(isset($_POST['editpre'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update special set cek='$cek' where idspecial='$idb'");
+    if($updatestok){
+        header('location:index.php');
     } else {
         echo "<script>alert('Gagal')</script>";
     }
@@ -203,5 +236,146 @@ if(isset($_POST['updatepre'])){
     }
 }
 
+//tokooo admin
+if(isset($_POST['adminkirim'])){
+    $picker = $_POST['picker'];
+    $nama = $_POST['nama'];
+    $kirimke = $_POST['kirimke'];
+    $sku = $_POST['sku'];
+    $quantity = $_POST['quantity'];
+    $kurir = $_POST['kurir'];
+    $note = $_POST['note'];
+    $status = $_POST['status'];
+    $cek = $_POST['cek'];
+
+    $pesan = mysqli_query($conn, "INSERT INTO pesan(cek, picker, nama, kirimke, sku, quantity, kurir, note, status) values('$cek','$picker','$nama','$kirimke','$sku','$quantity','$kurir','$note','$status')");
+    if($pesan){
+        header('location:order.php');
+    } else {
+        echo "<script>alert('Pesan Gagal Dikirim')</script>";
+    }
+}
+
+//special admin
+if(isset($_POST['adminspecial'])){
+    $nama = $_POST['nama'];
+    $kirimke = $_POST['kirimke'];
+    $sku = $_POST['sku'];
+    $quantity = $_POST['quantity'];
+    $kurir = $_POST['kurir'];
+    $note = $_POST['note'];
+    $status = $_POST['status'];
+    $cek = $_POST['cek'];
+
+    $pesan = mysqli_query($conn, "INSERT INTO special(cek, nama, kirimke, sku, quantity, kurir, note, status) values('$cek','$nama','$kirimke','$sku','$quantity','$kurir','$note','$status')");
+    if($pesan){
+        header('location:special.php');
+    } else {
+        echo "<script>alert('Pesan Gagal Dikirim')</script>";
+    }
+}
+
+//req admin
+if(isset($_POST['adminpesan'])){
+    $nama = $_POST['nama'];
+    $worker = $_POST['worker'];
+    $sku = $_POST['sku'];
+    $quantity = $_POST['quantity'];
+    $kurir = $_POST['kurir'];
+    $note = $_POST['note'];
+    $status = $_POST['status'];
+    $cek = $_POST['cek'];
+
+    $pesan = mysqli_query($conn, "INSERT INTO reqpre(cek, nama, worker, sku, quantity, kurir, note, status) values('$cek','$nama','$worker','$sku','$quantity','$kurir','$note','$status')");
+    if($pesan){
+        header('location:reqpre.php');
+    } else {
+        echo "<script>alert('Pesan Gagal Dikirim')</script>";
+    }
+}
+
+//edit check ayung
+if(isset($_POST['ayungdone'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update reqpre set cek='$cek' where idspecial='$idb'");
+    if($updatestok){
+        header('location:ayung.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
+
+//edit check ana
+if(isset($_POST['anadone'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update reqpre set cek='$cek' where idspecial='$idb'");
+    if($updatestok){
+        header('location:ana.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
+
+//edit check dani
+if(isset($_POST['danidone'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update reqpre set cek='$cek' where idspecial='$idb'");
+    if($updatestok){
+        header('location:dani.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
+
+//edit check
+if(isset($_POST['ilhamdone'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update reqpre set cek='$cek' where idspecial='$idb'");
+    if($updatestok){
+        header('location:ilham.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
+
+//edit check
+if(isset($_POST['ridodone'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update reqpre set cek='$cek' where idspecial='$idb'");
+    if($updatestok){
+        header('location:rido.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
+
+//edit check
+if(isset($_POST['salsadone'])){
+    $idb = $_POST['idb'];
+    $cek = $_POST['cek'];
+
+    $updatestok = mysqli_query($conn, "update reqpre set cek='$cek' where idspecial='$idb'");
+    if($updatestok){
+        header('location:salsa.php');
+    } else {
+        echo "<script>alert('Gagal')</script>";
+    }
+    
+}
 
 ?>

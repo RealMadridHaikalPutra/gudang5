@@ -54,7 +54,7 @@ require '../cek.php';
                 Gudang
             </div>
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-warehouse"></i>
                     <span>Stok Gudang</span></a>
@@ -83,7 +83,7 @@ require '../cek.php';
             </div>
 
             <!-- Nav Item - Transmigration -->
-            <li class="nav-item">
+            <li class="nav-item  active">
                 <a class="nav-link" href="request.php">
                     <i class="fas fa-splotch"></i>
                     <span>All Request</span></a>
@@ -171,133 +171,64 @@ require '../cek.php';
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Stok Gudang 5</h1>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Stok</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <h1 class="mt-4">Order List</h1>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Name</th>
-                                            <th>SKU Toko</th>
-                                            <th>Rak</th>
-                                            <th>Quantity</th>
-                                            <th>Update</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Status</th>
+                                                <th>Name</th>
+                                                <th>In Order To</th>
+                                                <th>SKU</th>
+                                                <th>Quantity</th>
+                                                <th>Courier</th>
+                                                <th>Type</th>
+                                                <th>Note</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                         <?php
-                                            $ambilsemuadatastok = mysqli_query($conn, "SELECT * FROM stok");
+                                            $ambildatapesan = mysqli_query($conn, "SELECT * FROM special");
                                             $i = 1;
-                                            while($data=mysqli_fetch_array($ambilsemuadatastok)){
-                                                $idb = $data['idbarang'];
-                                                $namabarang = $data['nama'];
-                                                $quantity = $data['quantity'];
+                                            while($data=mysqli_fetch_array($ambildatapesan)){
+                                                $idb = $data['idspecial'];
+                                                $cek = $data['cek'];
+                                                $nama = $data['nama'];
+                                                $kirimke = $data['kirimke'];
                                                 $sku = $data['sku'];
-                                                $rak = $data['rak'];
-
+                                                $quantity = $data['quantity'];
+                                                $kurir = $data['kurir'];
+                                                $note = $data['note'];
+                                                $status = $data['status'];
                                         ?>
-
-                                        <tr>
-                                            <td><?=$i++;?></td>
-                                            <td><?=$namabarang;?></td>
-                                            <td class="text-uppercase"><?=$sku;?></td>
-                                            <td><?=$rak;?></td>
-                                            <td><?=$quantity;?></td>
-                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?=$idb;?>">
-                                                Edit</button>
-                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#delete<?=$idb;?>">
-                                                Delete</button>
-                                            </td>
-                                        </tr>
-                                        <!-- The Edit -->
-                                            <div class="modal fade" id="edit<?=$idb;?>">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Edit Barang</h4>
-                                                </div>
-
-                                                <!-- Modal body -->
-                                                <form method="post">
-                                                <div class="modal-body">
-                                                    <label for="nama">Nama Barang</label>
-                                                    <input type="text" name="nama" placeholder="Nama Barang" value="<?=$namabarang;?>" class="form-control" required="">
-                                                    <input type="hidden" name="sku" value="<?=$sku;?>" class="form-control" required="">
-                                                    <label for="quantity">Quantity</label>
-                                                    <input type="number" name="quantity" placeholder="Quantity" value="<?=$quantity;?>" class="form-control" required="">
-                                                    <label for="rak">Rak</label>
-                                                    <input type="text" name="rak" placeholder="Rak" value="<?=$rak;?>" class="form-control" required="">
-                                                    <button type="submit" class="btn btn-primary" name="editbarang">Edit</button>
-                                                </div>
-                                                </form>
-
-                                                </div>
-                                            </div>
-                                            </div>
-
-                                            <!-- The Delete -->
-                                            <div class="modal fade" id="delete<?=$idb;?>">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Delete Barang</h4>
-                                                </div>
-
-                                                <!-- Modal body -->
-                                                <form method="post">
-                                                <div class="modal-body">
-                                                    Mau Hapus Barang <?=$namabarang;?> dengan SKU <?=$sku;?> ?
-                                                    <input type="hidden" name="idb" value="<?=$idb;?>">
-                                                    <br>
-                                                    <br>
-                                                    <button type="submit" class="btn btn-warning" name="hapusbarang">Hapus</button>
-                                                </div>
-                                                </form>
-
-                                                </div>
-                                            </div>
-                                            </div>
+                                            <tr>
+                                                <td><?=$i++;?></td>
+                                                <td><?=$cek;?></td>
+                                                <td><?=$nama;?></td>
+                                                <td><?=$kirimke;?></td>
+                                                <td class="text-uppercase"><?=$sku;?></td>
+                                                <td><?=$quantity;?></td>
+                                                <td><?=$kurir;?></td>
+                                                <td><?=$status;?></td>
+                                                <td><?=$note;?></td>
+                                            </tr>
                                         <?php
-                                            };
+                                            }
                                         ?>
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
+                </main>
             </div>
-            <!-- End of Main Content -->
-
         </div>
-        <!-- End of Content Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -311,10 +242,10 @@ require '../cek.php';
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="../logout.php">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
