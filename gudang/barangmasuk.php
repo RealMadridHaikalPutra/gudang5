@@ -179,7 +179,7 @@ require '../cek.php';
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="date">Date</label>
-                                <input class="form-control" name="date" id="date" type="datetime-local" require>
+                                <input class="form-control" name="date" id="date" type="datetime-local" required="">
                             </div>
                             </div>
                             <div class="col-md-4">
@@ -222,7 +222,7 @@ require '../cek.php';
                             </div>
                             </div>
                             <div class="text-right">
-                            <button class="btn btn-warning solid blank" type="submit" name="barangmasuk">Add Barang Existing</button>
+                            <button class="btn btn-warning solid blank" type="submit" name="barangmasuk">Update Stok</button>
                             <button class="btn btn-primary solid blank" type="submit" name="barangbaru">Add barang Baru</button>
                             </div>
                             <br>

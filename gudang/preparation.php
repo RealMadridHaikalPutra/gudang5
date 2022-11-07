@@ -179,7 +179,7 @@ require '../cek.php';
                             <div class="col-md-4">
                             <div class="form-group">
                                 <label for="date">Date</label>
-                                <input class="form-control" name="date" id="date" type="datetime-local" require>
+                                <input class="form-control" name="date" id="date" type="datetime-local" required="">
                             </div>
                             </div>
                             <div class="col-md-4">

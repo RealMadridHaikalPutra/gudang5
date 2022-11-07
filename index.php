@@ -119,6 +119,20 @@ require 'function.php';
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Stok Gudang 5</h1>
 
+                    <?php
+                        $ambilsemuadatastok = mysqli_query($conn, "SELECT * FROM stok WHERE quantity < 1");
+
+                        while($fetch=mysqli_fetch_array($ambilsemuadatastok)){
+                         $barang = $fetch['nama'];
+                        
+                    ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Perhatian!</strong> Stok <?=$barang;?> di Gudang 5 telah <strong>Habis!</strong>
+                    </div>
+                    <?php
+                        }
+                    ?>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

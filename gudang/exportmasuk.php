@@ -47,7 +47,7 @@ require '../cek.php';
                                             $status = $data['status']
                                         ?>
                                         <tr>
-                                            <td><?php echo $i;?></td>
+                                            <td><?php echo $i++;?></td>
                                             <td><?php echo $worker;?></td>
                                             <td><?php echo $date;?></td>
                                             <td><?php echo $nama;?></td>

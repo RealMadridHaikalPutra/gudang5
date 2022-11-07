@@ -49,7 +49,7 @@ require '../cek.php';
                                             $note = $data['note'];
                                         ?>
                                         <tr>
-                                            <td><?=$i;?></td>
+                                            <td><?=$i++;?></td>
                                             <td><?=$worker;?></td>
                                             <td><?=$date;?></td>
                                             <td class="text-uppercase"><?=$sku;?></td>
